@@ -2,8 +2,9 @@ import asyncHandler from "../middlewares/asyncHandler.js";
 
 const createUser = asyncHandler(async (req, res) => {
   const { username, email, password } = req.body;
-  console.log(username);
-  console.log(email);
-  console.log(password);
+
+  if (username || email || password) {
+    throw new Error("please fill all required fields ");
+  }
 });
 export { createUser };
